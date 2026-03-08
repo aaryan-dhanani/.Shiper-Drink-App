@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#1E2538"
+    android:padding="24dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Address"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-bold"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Address Name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADDRESS NAME"
+        android:textColor="#8B93A6"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/et_address_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_search_dark"
+        android:paddingHorizontal="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#555E72"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif"
+        android:hint="e.g. Home, Office, Gym"
+        android:maxLines="1"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Address Type Selector -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TYPE"
+        android:textColor="#8B93A6"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <FrameLayout
+            android:id="@+id/btn_type_home"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_btn_default_active">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="#FFB300"
+                    android:layout_marginEnd="6dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="#FFB300"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-bold" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_type_office"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/bg_btn_default_inactive">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_briefcase"
+                    app:tint="#8B93A6"
+                    android:layout_marginEnd="6dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Office"
+                    android:textColor="#8B93A6"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-bold" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_type_gym"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_btn_default_inactive">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_fitness"
+                    app:tint="#8B93A6"
+                    android:layout_marginEnd="6dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gym"
+                    android:textColor="#8B93A6"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-bold" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Address Line 1 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADDRESS LINE 1"
+        android:textColor="#8B93A6"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/et_address_line1"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_search_dark"
+        android:paddingHorizontal="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#555E72"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif"
+        android:hint="Street address, building, etc."
+        android:maxLines="1"
+        android:inputType="textPostalAddress"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Address Line 2 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADDRESS LINE 2"
+        android:textColor="#8B93A6"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif-bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/et_address_line2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_search_dark"
+        android:paddingHorizontal="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#555E72"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif"
+        android:hint="City, State, ZIP Code"
+        android:maxLines="1"
+        android:inputType="textPostalAddress"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Set as Default checkbox -->
+    <LinearLayout
+        android:id="@+id/btn_toggle_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp"
+        android:paddingVertical="8dp">
+
+        <FrameLayout
+            android:id="@+id/fl_checkbox"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/bg_btn_default_inactive"
+            android:layout_marginEnd="10dp">
+            <ImageView
+                android:id="@+id/iv_check"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_check"
+                app:tint="#FFB300"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set as default address"
+            android:textColor="#A8B0C0"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif" />
+    </LinearLayout>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#2E374D"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#A8B0C0"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-bold"
+            app:cornerRadius="14dp" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#FFB300"
+            android:text="Save Address"
+            android:textAllCaps="false"
+            android:textColor="#1A150D"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-bold"
+            app:cornerRadius="14dp" />
+    </LinearLayout>
+</LinearLayout>

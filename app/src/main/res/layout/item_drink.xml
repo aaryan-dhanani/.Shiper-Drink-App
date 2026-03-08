@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="12dp"
+    app:cardBackgroundColor="#1D2333"
+    app:strokeColor="#2C364A"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <ImageView
+                android:id="@+id/iv_drink_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#2C364A" /> <!-- Placeholder background -->
+
+            <!-- Rating badge -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_shiper_logo"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_star"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_drink_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.8"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-bold" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Details block -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_drink_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/btn_add_to_cart_circle"
+                android:layout_marginEnd="8dp"
+                android:text="Midnight Sunrise"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-bold" />
+
+            <TextView
+                android:id="@+id/tv_drink_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_drink_name"
+                android:layout_toStartOf="@+id/btn_add_to_cart_circle"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Citrus, Grenadine, Sparkling Soda"
+                android:textColor="#8B93A6"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif"
+                android:lines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tv_drink_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_drink_ingredients"
+                android:layout_marginTop="8dp"
+                android:text="$12.50"
+                android:textColor="#FFB300"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black" />
+
+            <!-- Circle Add Button -->
+            <FrameLayout
+                android:id="@+id/btn_add_to_cart_circle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_shiper_btn_yellow">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="+"
+                    android:textColor="#000000"
+                    android:textSize="28sp"
+                    android:layout_marginBottom="2dp"
+                    android:fontFamily="sans-serif-medium" />
+            </FrameLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

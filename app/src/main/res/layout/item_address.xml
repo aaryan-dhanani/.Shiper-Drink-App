@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="#1E2538"
+    app:strokeColor="#2E374D"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Top Row: Icon + Name + DEFAULT badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <!-- Type Icon -->
+            <ImageView
+                android:id="@+id/iv_address_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home"
+                app:tint="#FFB300"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Address Name -->
+            <TextView
+                android:id="@+id/tv_address_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-bold" />
+
+            <!-- DEFAULT Badge -->
+            <TextView
+                android:id="@+id/tv_default_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DEFAULT"
+                android:textColor="#FFB300"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-bold"
+                android:background="@drawable/bg_badge_default"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:layout_marginStart="10dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Address Line 1 -->
+        <TextView
+            android:id="@+id/tv_address_line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="123 Premium Lane, Luxury Heights"
+            android:textColor="#A8B0C0"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginBottom="2dp" />
+
+        <!-- Address Line 2 -->
+        <TextView
+            android:id="@+id/tv_address_line2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manhattan, NY 10001"
+            android:textColor="#A8B0C0"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Action Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Default / Set as Default button -->
+            <LinearLayout
+                android:id="@+id/btn_set_default"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/bg_btn_default_inactive"
+                android:paddingHorizontal="12dp"
+                android:layout_marginEnd="12dp">
+
+                <View
+                    android:id="@+id/dot_default"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_party_circle"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:id="@+id/tv_default_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set as Default"
+                    android:textColor="#8B93A6"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-bold" />
+            </LinearLayout>
+
+            <!-- Edit Button -->
+            <LinearLayout
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingHorizontal="4dp"
+                android:layout_marginEnd="12dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_edit"
+                    app:tint="#A8B0C0"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:textColor="#A8B0C0"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+            <!-- Delete Button -->
+            <LinearLayout
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/bg_btn_delete"
+                android:paddingHorizontal="12dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_delete"
+                    app:tint="#FF5252"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:textColor="#FF5252"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

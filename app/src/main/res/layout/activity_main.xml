@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111625">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_nav_container"
+        android:clipToPadding="false"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Title Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="12dp"
+                android:layout_marginBottom="24dp">
+
+                <FrameLayout
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_shiper_logo"
+                    android:layout_marginEnd="12dp">
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_cocktail_gold" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=".Shiper"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-bold" />
+
+                <!-- Profile placeholder (can use person icon inside circle) -->
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_person"
+                    android:background="@drawable/bg_shiper_logo"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- Search box -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_search_dark"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    android:alpha="0.5"
+                    app:tint="#FFFFFF"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="Search for premium drinks..."
+                    android:textColorHint="#8B93A6"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <!-- Categories -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_categories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Drink Chips populated dynamically in MainActivity -->
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tv_result_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <!-- Popular Beverages / View All -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Popular Beverages"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View All"
+                    android:textColor="#FFB300"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-bold" />
+            </LinearLayout>
+
+            <!-- RecyclerView for the large drinks list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_drinks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_nav_container"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:background="#161B2A"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:elevation="24dp">
+
+        <FrameLayout android:id="@+id/nav_shop" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_shop" app:tint="#FFB300" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SHOP" android:textSize="9sp" android:textColor="#FFB300" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/nav_search" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_search" app:tint="#8B93A6" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SEARCH" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/nav_cart" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_cart" app:tint="#8B93A6" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CART" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/nav_profile" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_person" app:tint="#8B93A6" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PROFILE" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

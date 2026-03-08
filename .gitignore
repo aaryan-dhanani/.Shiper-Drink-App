@@ -1,0 +1,23 @@
+# Android & Gradle
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.apk
+*.iml
+.DS_Store
+captions/
+*.log
+!gradle-wrapper.jar
+.gradle/
+build/
+app/build/
+local.properties
+.idea/
+*.apk
+*.iml
+.DS_Store
+captions/
+*.log
+!gradle-wrapper.jar

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111625">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/ll_cart_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="44dp"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="24dp">
+
+        <FrameLayout
+            android:id="@+id/btn_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_shiper_logo"> <!-- assumed grey circle -->
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back"
+                app:tint="#FFFFFF" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Your Cart"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-bold"
+            android:gravity="center" />
+            
+        <!-- Dummy for item count to prevent crash -->
+        <TextView
+            android:id="@+id/tv_item_count"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_shiper_logo">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_share"
+                android:rotation="90"
+                app:tint="#FFFFFF" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_empty_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_cart_header"
+        android:layout_above="@+id/ll_cart_bottom"
+        android:text="Your cart is empty"
+        android:gravity="center"
+        android:textColor="#8B93A6"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_cart_header"
+        android:layout_above="@+id/ll_cart_bottom"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="8dp"
+        android:clipToPadding="false" />
+
+    <LinearLayout
+        android:id="@+id/ll_cart_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fake_nav"
+        android:orientation="vertical"
+        android:background="#1E2538"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Subtotal"
+                android:textColor="#8B93A6"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$286.50"
+                android:textColor="#8B93A6"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Delivery Fee"
+                android:textColor="#8B93A6"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$8.00"
+                android:textColor="#8B93A6"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2B334B"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total Amount"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-bold" />
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFB300"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-bold" />
+        </LinearLayout>
+
+        <!-- Use com.google.android.material.button.MaterialButton so it doesn't crash if Java tries to cast it or just generic button. CartActivity java uses Button btnOrder = findViewById(R.id.btn_place_order); -->
+        <Button
+            android:id="@+id/btn_place_order"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="#FFB300"
+            android:text="Proceed to Checkout -->"
+            android:textAllCaps="false"
+            android:textColor="#1A150D"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-bold"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
+
+    <!-- Hardcoded Fake Bottom Nav to match mockup -->
+    <LinearLayout
+        android:id="@+id/fake_nav"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:background="#161B2A"
+        android:orientation="horizontal"
+        android:paddingTop="8dp">
+
+        <FrameLayout android:id="@+id/nav_shop" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_shop" app:tint="#8B93A6" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SHOP" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/nav_search" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_search" app:tint="#8B93A6" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SEARCH" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/nav_cart" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_cart" app:tint="#FFB300" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CART" android:textSize="9sp" android:textColor="#FFB300" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/nav_profile" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_person" app:tint="#8B93A6" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PROFILE" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

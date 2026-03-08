@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111625">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="44dp"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="24dp">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_back"
+            android:padding="4dp"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Saved Addresses"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-bold"
+            android:gravity="center" />
+
+        <!-- Spacer for symmetry -->
+        <View
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider_top"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/ll_header"
+        android:background="#1E2538" />
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/divider_top"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="32dp">
+
+            <!-- ADD NEW ADDRESS BUTTON -->
+            <Button
+                android:id="@+id/btn_add_address"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:backgroundTint="#FFB300"
+                android:text="   Add New Address"
+                android:textAllCaps="false"
+                android:textColor="#1A150D"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-bold"
+                android:drawableStart="@drawable/ic_location_pin"
+                android:drawableTint="#1A150D"
+                android:drawablePadding="8dp"
+                app:cornerRadius="16dp"
+                android:layout_marginBottom="32dp" />
+
+            <!-- YOUR LOCATIONS Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YOUR LOCATIONS"
+                android:textColor="#8B93A6"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Address Cards Container -->
+            <LinearLayout
+                android:id="@+id/ll_addresses_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
