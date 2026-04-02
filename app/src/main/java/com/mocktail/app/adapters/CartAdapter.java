@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +40,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.tvQuantity.setText(String.valueOf(item.getQuantity()));
         holder.tvSubtotal.setText(String.format("$%.2f", item.getTotalPrice()));
 
+        // Load the correct drink image dynamically
+        String imageResourceName = item.getDrink().getImageUrl();
+        int resId = context.getResources().getIdentifier(imageResourceName, "drawable", context.getPackageName());
+        if (resId != 0) {
+            holder.ivDrinkImage.setImageResource(resId);
+        } else {
+            holder.ivDrinkImage.setImageResource(R.drawable.bg_shiper_image_placeholder);
+        }
+
         holder.btnPlus.setOnClickListener(v -> {
             CartManager.getInstance().updateQuantity(item.getDrink().getId(), item.getQuantity() + 1);
             onCartChanged.run();
@@ -60,17 +70,19 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     static class CartViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvPrice, tvQuantity, tvSubtotal;
-        ImageButton btnPlus, btnMinus, btnRemove;
+        ImageView ivDrinkImage;
+        View btnPlus, btnMinus, btnRemove;
 
         CartViewHolder(View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tv_cart_name);
-            tvPrice = itemView.findViewById(R.id.tv_cart_price);
-            tvQuantity = itemView.findViewById(R.id.tv_cart_quantity);
-            tvSubtotal = itemView.findViewById(R.id.tv_cart_subtotal);
-            btnPlus = itemView.findViewById(R.id.btn_plus);
-            btnMinus = itemView.findViewById(R.id.btn_minus);
-            btnRemove = itemView.findViewById(R.id.btn_remove);
+            tvName       = itemView.findViewById(R.id.tv_cart_name);
+            tvPrice      = itemView.findViewById(R.id.tv_cart_price);
+            tvQuantity   = itemView.findViewById(R.id.tv_cart_quantity);
+            tvSubtotal   = itemView.findViewById(R.id.tv_cart_subtotal);
+            ivDrinkImage = itemView.findViewById(R.id.iv_cart_drink_image);
+            btnPlus      = itemView.findViewById(R.id.btn_plus);
+            btnMinus     = itemView.findViewById(R.id.btn_minus);
+            btnRemove    = itemView.findViewById(R.id.btn_remove);
         }
     }
 }

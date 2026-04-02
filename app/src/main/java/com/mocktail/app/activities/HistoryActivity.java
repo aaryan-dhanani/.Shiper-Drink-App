@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.mocktail.app.R;
 import com.mocktail.app.adapters.OrderAdapter;
-import com.mocktail.app.utils.OrderManager;
+import com.mocktail.app.database.DatabaseRepository;
+import com.mocktail.app.models.Order;
+import java.util.List;
 
 public class HistoryActivity extends AppCompatActivity {
 
@@ -19,31 +21,28 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         RecyclerView rvOrders = findViewById(R.id.rv_orders);
-        TextView tvEmpty = findViewById(R.id.tv_empty_history);
+        TextView tvEmpty      = findViewById(R.id.tv_empty_history);
 
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
 
-        // Bottom nav click handlers
+        // Bottom nav
         findViewById(R.id.nav_shop).setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+            startActivity(new Intent(this, MainActivity.class)); finish();
         });
         findViewById(R.id.nav_search).setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("FOCUS_SEARCH", true);
-            startActivity(intent);
-            finish();
+            Intent i = new Intent(this, MainActivity.class);
+            i.putExtra("FOCUS_SEARCH", true); startActivity(i); finish();
         });
+        findViewById(R.id.nav_history).setOnClickListener(v -> { /* already here */ });
         findViewById(R.id.nav_cart).setOnClickListener(v -> {
-            startActivity(new Intent(this, CartActivity.class));
-            finish();
+            startActivity(new Intent(this, CartActivity.class)); finish();
         });
         findViewById(R.id.nav_profile).setOnClickListener(v -> {
-            startActivity(new Intent(this, ProfileActivity.class));
-            finish();
+            startActivity(new Intent(this, ProfileActivity.class)); finish();
         });
 
-        var orders = OrderManager.getInstance().getOrders();
+        // ✅ Load orders from SQLite (persisted across restarts)
+        List<Order> orders = DatabaseRepository.getInstance(this).getAllOrders();
 
         if (orders.isEmpty()) {
             rvOrders.setVisibility(View.GONE);

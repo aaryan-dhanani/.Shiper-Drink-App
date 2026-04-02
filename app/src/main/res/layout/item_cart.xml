@@ -22,11 +22,10 @@
             android:layout_height="72dp"
             android:background="@drawable/bg_shiper_image_placeholder"
             android:layout_marginEnd="16dp">
-            <!-- You can use actual image if backend works, static for now -->
             <ImageView
+                android:id="@+id/iv_cart_drink_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/drink5_citrus_splash"
                 android:scaleType="centerCrop" />
             <!-- Inner Corner Cutout for design -->
             <View

@@ -207,8 +207,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:padding="4dp"
-                android:src="@drawable/ic_back"
-                android:rotation="-90"
+                android:src="@drawable/ic_minus"
                 app:tint="#FFFFFF" />
 
             <TextView
@@ -226,8 +225,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:padding="4dp"
-                android:src="@drawable/ic_back"
-                android:rotation="90"
+                android:src="@drawable/ic_plus"
                 app:tint="#FFFFFF" />
         </LinearLayout>
 

@@ -93,10 +93,11 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Alex Rivera"
+                android:text="Guest"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:fontFamily="sans-serif-black"
@@ -113,10 +114,11 @@
                 android:layout_marginBottom="4dp" />
 
             <TextView
+                android:id="@+id/tv_profile_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="alex.rivera@email.com"
+                android:text=""
                 android:textColor="#8B93A6"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif"
@@ -238,6 +240,7 @@
 
                 <!-- Order History Menu -->
                 <LinearLayout
+                    android:id="@+id/btn_order_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -313,6 +316,7 @@
 
                 <!-- Logout Menu -->
                 <LinearLayout
+                    android:id="@+id/btn_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -367,6 +371,12 @@
             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
                 <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_search" app:tint="#8B93A6" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SEARCH" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@+id/nav_history" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_history" app:tint="#8B93A6" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HISTORY" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
             </LinearLayout>
         </FrameLayout>
         <FrameLayout android:id="@+id/nav_cart" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">

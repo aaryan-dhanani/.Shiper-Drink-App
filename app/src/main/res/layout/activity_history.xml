@@ -162,6 +162,12 @@
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SEARCH" android:textSize="9sp" android:textColor="#8B93A6" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
             </LinearLayout>
         </FrameLayout>
+        <FrameLayout android:id="@+id/nav_history" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_history" app:tint="#FFB300" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HISTORY" android:textSize="9sp" android:textColor="#FFB300" android:fontFamily="sans-serif-bold" android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
         <FrameLayout android:id="@+id/nav_cart" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:orientation="vertical" android:gravity="center">
                 <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_cart" app:tint="#8B93A6" />

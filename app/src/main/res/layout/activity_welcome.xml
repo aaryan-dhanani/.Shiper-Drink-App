@@ -74,8 +74,9 @@
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:background="@drawable/bg_shiper_image_placeholder"
+            android:src="@drawable/drink1_midnight_sunrise"
             android:scaleType="centerCrop"
-            android:alpha="0.3" />
+            android:alpha="0.7" />
 
         <ImageView
             android:layout_width="0dp"
@@ -83,8 +84,9 @@
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:background="@drawable/bg_shiper_image_placeholder"
+            android:src="@drawable/drink4_tropical_breeze"
             android:scaleType="centerCrop"
-            android:alpha="0.3" />
+            android:alpha="0.7" />
 
         <ImageView
             android:layout_width="0dp"
@@ -92,8 +94,9 @@
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:background="@drawable/bg_shiper_image_placeholder"
+            android:src="@drawable/drink7_pink_sunset"
             android:scaleType="centerCrop"
-            android:alpha="0.3" />
+            android:alpha="0.7" />
 
         <ImageView
             android:layout_width="0dp"
@@ -101,8 +104,9 @@
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:background="@drawable/bg_shiper_image_placeholder"
+            android:src="@drawable/drink3_velvet_berry"
             android:scaleType="centerCrop"
-            android:alpha="0.3" />
+            android:alpha="0.7" />
             
     </LinearLayout>
 

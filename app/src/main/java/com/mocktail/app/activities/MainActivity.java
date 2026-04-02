@@ -52,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
         tvResultCount = findViewById(R.id.tv_result_count);
         llCategories = findViewById(R.id.ll_categories);
 
+        // "View All" — clear search and reset to All category
+        findViewById(R.id.tv_view_all).setOnClickListener(v -> {
+            etSearch.setText("");
+            currentCategory = "All";
+            updateChipStyles();
+            filterDrinks();
+        });
+
         // Bottom nav click handlers
         findViewById(R.id.nav_shop).setOnClickListener(v -> {
             // Curren screen - scroll to top
@@ -59,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.nav_search).setOnClickListener(v -> {
             etSearch.requestFocus();
+        });
+        findViewById(R.id.nav_history).setOnClickListener(v -> {
+            startActivity(new Intent(this, HistoryActivity.class));
+            finish();
         });
         findViewById(R.id.nav_cart).setOnClickListener(v -> {
             startActivity(new Intent(this, CartActivity.class));
