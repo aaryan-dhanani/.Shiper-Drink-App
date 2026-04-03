@@ -68,10 +68,10 @@ public class CartActivity extends AppCompatActivity {
             rvCart.setVisibility(View.GONE);
             tvEmptyCart.setVisibility(View.VISIBLE);
             btnOrder.setEnabled(false);
-            tvTotal.setText("Total: $0.00");
-            tvItemCount.setText("0 items");
-            if (tvSubtotal != null) tvSubtotal.setText("$0.00");
-            if (tvDeliveryFee != null) tvDeliveryFee.setText("$0.00");
+            tvTotal.setText("Total: ₹0.00");
+            CartManager.getInstance().clearCart();
+            if (tvSubtotal != null) tvSubtotal.setText("₹0.00");
+            if (tvDeliveryFee != null) tvDeliveryFee.setText("₹0.00");
             return;
         }
         tvEmptyCart.setVisibility(View.GONE);
@@ -83,9 +83,9 @@ public class CartActivity extends AppCompatActivity {
 
         double subtotal = cart.getTotalAmount();
         double total    = subtotal + DELIVERY_FEE;
-        if (tvSubtotal != null) tvSubtotal.setText(String.format("$%.2f", subtotal));
-        if (tvDeliveryFee != null) tvDeliveryFee.setText(String.format("$%.2f", DELIVERY_FEE));
-        tvTotal.setText(String.format("Total: $%.2f", total));
+        if (tvSubtotal != null) tvSubtotal.setText(String.format("₹%.2f", subtotal));
+        if (tvDeliveryFee != null) tvDeliveryFee.setText(String.format("₹%.2f", DELIVERY_FEE));
+        tvTotal.setText(String.format("Total: ₹%.2f", total));
         tvItemCount.setText(cart.getTotalItemCount() + " items");
     }
 

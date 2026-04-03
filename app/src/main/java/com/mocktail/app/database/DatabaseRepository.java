@@ -146,6 +146,26 @@ public class DatabaseRepository {
         return orders;
     }
 
+    /** Get a specific order by ID */
+    public Order getOrderById(String orderId) {
+        Order order = null;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        List<Drink> allDrinks = DrinkData.getAllDrinks();
+
+        Cursor oc = db.query(TABLE_ORDERS, null, COL_ORDER_REF + "=?", new String[]{orderId}, null, null, null);
+        if (oc.moveToFirst()) {
+            double total  = oc.getDouble(oc.getColumnIndexOrThrow(COL_ORDER_TOTAL));
+            String status = oc.getString(oc.getColumnIndexOrThrow(COL_ORDER_STATUS));
+            String date   = oc.getString(oc.getColumnIndexOrThrow(COL_ORDER_DATE));
+            String time   = oc.getString(oc.getColumnIndexOrThrow(COL_ORDER_TIME));
+            List<CartItem> items = getItemsForOrder(db, orderId, allDrinks);
+            order = new Order(orderId, items, total, status, date, time);
+        }
+        oc.close();
+        db.close();
+        return order;
+    }
+
     /** Helper: load CartItems for a specific order ref from an already-open DB. */
     private List<CartItem> getItemsForOrder(SQLiteDatabase db, String orderRef, List<Drink> allDrinks) {
         List<CartItem> items = new ArrayList<>();

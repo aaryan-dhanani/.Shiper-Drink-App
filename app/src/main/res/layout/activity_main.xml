@@ -50,6 +50,7 @@
 
                 <!-- Profile placeholder (can use person icon inside circle) -->
                 <ImageView
+                    android:id="@+id/iv_profile_top"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:src="@drawable/ic_person"

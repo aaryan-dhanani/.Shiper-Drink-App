@@ -47,18 +47,7 @@
             android:layout_height="1dp"
             android:visibility="gone" />
 
-        <FrameLayout
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_shiper_logo">
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_share"
-                android:rotation="90"
-                app:tint="#FFFFFF" />
-        </FrameLayout>
+
     </LinearLayout>
 
     <TextView
@@ -112,7 +101,7 @@
                 android:id="@+id/tv_subtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$0.00"
+                android:text="₹0.00"
                 android:textColor="#8B93A6"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium" />
@@ -137,7 +126,7 @@
                 android:id="@+id/tv_delivery_fee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$8.00"
+                android:text="₹8.00"
                 android:textColor="#8B93A6"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium" />

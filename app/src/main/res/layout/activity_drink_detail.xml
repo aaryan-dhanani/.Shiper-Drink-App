@@ -61,11 +61,7 @@
                         android:fontFamily="sans-serif-bold"
                         android:gravity="center" />
                         
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_share"
-                        app:tint="#FFFFFF" />
+
                 </LinearLayout>
             </FrameLayout>
 
@@ -97,7 +93,7 @@
                         android:id="@+id/tv_detail_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$12.50"
+                        android:text="₹12.50"
                         android:textColor="#FFB300"
                         android:textSize="24sp"
                         android:fontFamily="sans-serif-bold" />

@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, ProfileActivity.class));
             finish();
         });
+        
+        // Top profile icon
+        findViewById(R.id.iv_profile_top).setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
     }
 
     private void setupRecyclerView() {

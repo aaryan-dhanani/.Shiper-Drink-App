@@ -36,9 +36,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem item = items.get(position);
         holder.tvName.setText(item.getDrink().getName());
-        holder.tvPrice.setText(String.format("$%.2f", item.getDrink().getPrice()));
+        holder.tvPrice.setText(String.format("₹%.2f", item.getDrink().getPrice()));
         holder.tvQuantity.setText(String.valueOf(item.getQuantity()));
-        holder.tvSubtotal.setText(String.format("$%.2f", item.getTotalPrice()));
+        holder.tvSubtotal.setText(String.format("₹%.2f", item.getTotalPrice()));
 
         // Load the correct drink image dynamically
         String imageResourceName = item.getDrink().getImageUrl();

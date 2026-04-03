@@ -213,6 +213,12 @@
                                 android:textColor="#A8B0C0"
                                 android:textSize="14sp" />
                         </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/ll_ordered_items"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="16dp" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

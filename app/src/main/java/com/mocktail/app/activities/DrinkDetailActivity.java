@@ -56,7 +56,7 @@ public class DrinkDetailActivity extends AppCompatActivity {
 
     private void populateData() {
         tvName.setText(drink.getName());
-        tvPrice.setText(String.format("$%.2f", drink.getPrice()));
+        tvPrice.setText(String.format("₹%.2f", drink.getPrice()));
         tvDesc.setText(drink.getDescription());
         tvRating.setText(String.valueOf(drink.getRating()));
 

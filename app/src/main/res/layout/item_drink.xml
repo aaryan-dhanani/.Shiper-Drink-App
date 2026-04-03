@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_drink_ingredients"
                 android:layout_marginTop="8dp"
-                android:text="$12.50"
+                android:text="₹12.50"
                 android:textColor="#FFB300"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-black" />

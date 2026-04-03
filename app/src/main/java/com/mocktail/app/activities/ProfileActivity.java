@@ -27,7 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView tvOrderCount = findViewById(R.id.tv_order_count);
         TextView tvTotalSpent = findViewById(R.id.tv_total_spent);
         tvOrderCount.setText(String.valueOf(orders.size()));
-        tvTotalSpent.setText(String.format("$%.2f", totalSpent));
+        tvTotalSpent.setText(String.format("₹%.2f", totalSpent));
 
         // Show logged-in user name and email if available
         SharedPreferences prefs = getSharedPreferences("mocktail_prefs", MODE_PRIVATE);

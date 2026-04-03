@@ -32,7 +32,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         Order order = orders.get(position);
         holder.tvOrderId.setText(order.getOrderId());
         holder.tvDate.setText(order.getDate() + " • " + order.getTime());
-        holder.tvTotal.setText(String.format("$%.2f", order.getTotalAmount()));
+        holder.tvTotal.setText(String.format("₹%.2f", order.getTotalAmount()));
         holder.tvStatus.setText(order.getStatus());
         holder.tvSummary.setText(order.getSummary());
         holder.tvItemCount.setText(order.getItems().size() + " item(s)");

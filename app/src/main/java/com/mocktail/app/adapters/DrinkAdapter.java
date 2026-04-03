@@ -48,7 +48,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
         Drink drink = drinks.get(position);
         holder.tvName.setText(drink.getName());
         holder.tvIngredients.setText(drink.getIngredients());
-        holder.tvPrice.setText(String.format("$%.2f", drink.getPrice()));
+        holder.tvPrice.setText(String.format("₹%.2f", drink.getPrice()));
         holder.tvRating.setText(String.valueOf(drink.getRating()));
 
         // Load image using Glide
@@ -60,8 +60,12 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
             Glide.with(context).load(R.drawable.drink1_midnight_sunrise).into(holder.ivDrink);
         }
 
-        // Add to cart
-        holder.btnAdd.setOnClickListener(v -> listener.onAdd(drink));
+        // Add to cart circle opens details instead of direct add
+        holder.btnAdd.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DrinkDetailActivity.class);
+            intent.putExtra("drink", drink);
+            context.startActivity(intent);
+        });
         
         // Open Detail
         holder.itemView.setOnClickListener(v -> {
