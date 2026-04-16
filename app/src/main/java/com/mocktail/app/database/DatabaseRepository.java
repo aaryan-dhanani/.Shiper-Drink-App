@@ -37,7 +37,6 @@ public class DatabaseRepository {
     //  USER METHODS
     // ══════════════════════════════════════════════════════
 
-    /** Register a new user. Returns true if inserted, false if email already exists. */
     public boolean registerUser(String name, String email, String password) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -46,7 +45,37 @@ public class DatabaseRepository {
         cv.put(COL_USER_PASS,  password);
         long result = db.insert(TABLE_USERS, null, cv);
         db.close();
+        
+        if (result != -1) {
+            try {
+                String postData = "action=signup" + 
+                                  "&name=" + java.net.URLEncoder.encode(name.trim(), "UTF-8") + 
+                                  "&email=" + java.net.URLEncoder.encode(email.trim().toLowerCase(), "UTF-8") + 
+                                  "&password=" + java.net.URLEncoder.encode(password, "UTF-8");
+                pushToGoogleSheets(postData);
+            } catch (Exception e) { e.printStackTrace(); }
+        }
+        
         return result != -1;  // -1 means duplicate email (UNIQUE constraint)
+    }
+
+    private void pushToGoogleSheets(String postData) {
+        new Thread(() -> {
+            try {
+                java.net.URL url = new java.net.URL("https://script.google.com/macros/s/AKfycbzgbbMOCA4NBqO0gFKxHhgtG76umY0Mf4eO7UyQfL2-2J9-QPCzp0GamroUX_EcPg_B/exec");
+                java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setDoOutput(true);
+                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                java.io.OutputStream os = conn.getOutputStream();
+                os.write(postData.getBytes("UTF-8"));
+                os.flush();
+                os.close();
+                int responseCode = conn.getResponseCode(); // Execute the request
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     /** Returns true if email + password match a record in the DB. */
@@ -115,6 +144,25 @@ public class DatabaseRepository {
             db.endTransaction();
             db.close();
         }
+
+        // --- Push Order details to Google Sheets ---
+        try {
+            String orderData = "action=order" +
+                    "&orderId=" + java.net.URLEncoder.encode(order.getOrderId(), "UTF-8") +
+                    "&email=" + java.net.URLEncoder.encode("In-App Customer", "UTF-8") +
+                    "&total=" + order.getTotalAmount() +
+                    "&status=" + java.net.URLEncoder.encode(order.getStatus(), "UTF-8");
+            pushToGoogleSheets(orderData);
+
+            for (CartItem item : order.getItems()) {
+                String itemData = "action=order_item" +
+                        "&orderId=" + java.net.URLEncoder.encode(order.getOrderId(), "UTF-8") +
+                        "&drinkName=" + java.net.URLEncoder.encode(item.getDrink().getName(), "UTF-8") +
+                        "&quantity=" + item.getQuantity() +
+                        "&price=" + item.getDrink().getPrice();
+                pushToGoogleSheets(itemData);
+            }
+        } catch (Exception e) { e.printStackTrace(); }
     }
 
     /** Load all orders from DB (newest first), with their items. */

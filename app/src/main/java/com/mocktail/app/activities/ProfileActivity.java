@@ -9,6 +9,11 @@ import com.mocktail.app.R;
 import com.mocktail.app.database.DatabaseRepository;
 import com.mocktail.app.models.Order;
 import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import android.os.Environment;
+import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -55,6 +60,35 @@ public class ProfileActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
+        });
+
+        // Export Database
+        findViewById(R.id.btn_export_db).setOnClickListener(v -> {
+            try {
+                File currentDB = getDatabasePath(com.mocktail.app.database.DatabaseHelper.DB_NAME);
+                File downloadDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                File backupDB = new File(downloadDir, "mocktail_exported.db");
+
+                if (currentDB.exists()) {
+                    FileInputStream fis = new FileInputStream(currentDB);
+                    FileOutputStream fos = new FileOutputStream(backupDB);
+                    
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while ((length = fis.read(buffer)) > 0) {
+                        fos.write(buffer, 0, length);
+                    }
+                    fos.flush();
+                    fos.close();
+                    fis.close();
+                    Toast.makeText(this, "Database saved to Downloads folder!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "Database does not exist yet.", Toast.LENGTH_SHORT).show();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Error exporting database: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
         });
 
         // Bottom nav
